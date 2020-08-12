@@ -1,7 +1,6 @@
 require 'securerandom'
 
 class Api::V1::UrlsController < ApplicationController
-	# skip_before_action :authorized #added because this api is not interacting with a front end and thus no token returned, can try on postman
 	skip_before_action :authorized, only: [:show]
 
 	def index

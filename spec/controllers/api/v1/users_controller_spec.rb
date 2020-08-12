@@ -10,5 +10,11 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			post :create, params: {username: nil, password: '12345'}
 			expect(response.status).to eq(401)
 		end
+
+		it "has returns invalid params message without valid params" do
+			expected_body = {error: "invalid parameters"}
+			post :create, params: {username: nil, password: '12345'}
+			expect(response.body).to eq expected_body.to_json
+		end
 	end
 end

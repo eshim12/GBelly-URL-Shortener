@@ -6,15 +6,12 @@ class ApplicationController < ActionController::API
 	end
 
 	def auth_header
-	# { Authorization: 'Bearer <token>' }
-		# when testing this on postman, there is no token in the header will have to add skip before action or instruct to add this token in auth header
 		request.headers['Authorization']
 	end
 
 	def decoded_token
 		if auth_header
 		  token = auth_header.split(' ')[1]
-		  # header: { 'Authorization': 'Bearer <token>' }
 		  begin
 		    JWT.decode(token, ENV['secret_key'], true, algorithm: 'HS256')
 		  rescue JWT::DecodeError
@@ -35,6 +32,6 @@ class ApplicationController < ActionController::API
 	end
 
 	def authorized
-		render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+		render json: {message: 'Please log in'}, status: :unauthorized unless logged_in?
 	end
 end

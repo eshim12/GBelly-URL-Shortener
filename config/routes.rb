@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 			resources :users, only: [:create]
 
 		 	resources :urls, only: [:index, :create, :update, :destroy]
-			
 		end
 	end
 	get ':slug', to: 'api/v1/urls#show'
