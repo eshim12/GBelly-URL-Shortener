@@ -27,7 +27,7 @@ Now you can visit http://localhost:3000 !
 ## 5. Seeded data
 You can create a user a url using `rails c` or run `rails db:seed` and access the shortened url. There is one user and one url in the seed file. Feel free to create more in the console!
 
-## 5. Tests
+## 6. Tests
 To set up tests, run:
 ```
 rails db:test:prepare
